@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">FOOD App</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="food_couriers">Food Couriers</string>
+    <string name="fast_convenient_search"><![CDATA[Fast & Convenient Search]]></string>
+    <string name="hungry_solved_in_seconds_your_go_to_meals_are_just_a_tap_away_order_relax_and_enjoy_no_cooking_no_waiting">Hungry? Solved in seconds! Your go-to meals are just a tap away. Order,relax, and enjoy—no cooking, no waiting!</string>
+    <string name="next">Next</string>
+    <string name="now_eat">Now eat well, don\'t leave the house,You can choose your favorite food only with one click</string>
+    <string name="sign_up_with_google">Sign Up with Google</string>
+    <string name="login_with_google">Login with Google</string>
+    <string name="login">Login</string>
+    <string name="enter_your_password">Enter your password</string>
+    <string name="password">Password</string>
+    <string name="enter_your_email_address">Enter your email address</string>
+    <string name="email_address">Email Address</string>
+    <string name="forget_password"><u>Forget Password?</u></string>
+</resources>

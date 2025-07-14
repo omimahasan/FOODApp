@@ -5,4 +5,7 @@
     <color name="light_primary_color">#D61355</color>
     <color name="primary_color">#DBD3D5</color>
     <color name="last_color_custom_but">#FF0000</color>
+    <color name="gray">#787171</color>
+    <color name="light_pink">#FFB4B4</color>
+    <color name="dark_pink">#FF0000</color>
 </resources>

@@ -95,7 +95,7 @@
         tools:ignore="MissingConstraints" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/sign_up_google"
+        android:id="@+id/sign_in_google"
         android:layout_width="286dp"
         android:layout_height="60dp"
         android:layout_marginTop="28dp"

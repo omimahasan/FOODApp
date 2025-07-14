@@ -7,10 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.foodapp.R
 import com.example.foodapp.databinding.FragmentSplashBinding
+import com.example.foodapp.viewmodel.LoginViewModel
+import com.example.foodapp.viewmodel.LoginViewModelFactory
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -18,6 +21,11 @@ class SplashFragment : Fragment() {
 
     private var _binding: FragmentSplashBinding? = null
     private val binding get() = _binding!!
+
+    // ✅ Get LoginViewModel instance
+    private val viewModel: LoginViewModel by activityViewModels {
+        LoginViewModelFactory(requireContext())
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,7 +38,6 @@ class SplashFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Start rotate animation on the image
         val rotateAnim = AnimationUtils.loadAnimation(requireContext(), R.anim.rotate)
         binding.animatedImgSplash.startAnimation(rotateAnim)
 
@@ -41,12 +48,15 @@ class SplashFragment : Fragment() {
 
             delay(1000)
 
-            if (onBoardingIsFinished()) {
-                // Navigate to Home if onboarding is already done
-                findNavController().navigate(R.id.action_splashFragment_to_loginFragment)
+            // ✅ التحقق من حالة تسجيل الدخول
+            if (viewModel.isUserLoggedIn()) {
+                findNavController().navigate(R.id.action_splashFragment_to_homeFragment)
             } else {
-                // Navigate to OnBoard screen
-                findNavController().navigate(R.id.action_splashFragment_to_onBoardFragment)
+                if (onBoardingIsFinished()) {
+                    findNavController().navigate(R.id.action_splashFragment_to_loginFragment)
+                } else {
+                    findNavController().navigate(R.id.action_splashFragment_to_onBoardFragment)
+                }
             }
         }
     }

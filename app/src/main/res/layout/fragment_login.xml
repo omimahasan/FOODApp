@@ -32,7 +32,6 @@
         android:name="com.example.foodapp.ui.login.LoginViewPagerFragment"
         android:layout_width="match_parent"
         android:layout_height="600dp"
-        app:defaultNavHost="true"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -1,6 +1,5 @@
 package com.example.foodapp.viewmodel
 
-import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -15,10 +14,14 @@ class LoginViewModel(private val repository: AuthRepository): ViewModel() {
     private val _errorMessage = MutableLiveData<String?>()
     val errorMessage: LiveData<String?> get() = _errorMessage
 
+    private val _navigateToHome = MutableLiveData<Boolean>(false)
+    val navigateToHome: LiveData<Boolean> get() = _navigateToHome
+
     fun login(email: String, password: String) {
         repository.signInWithEmail(email, password) { success, error ->
             _loginSuccess.postValue(success)
             _errorMessage.postValue(error)
+            if (success) _navigateToHome.postValue(true)
         }
     }
 
@@ -26,6 +29,7 @@ class LoginViewModel(private val repository: AuthRepository): ViewModel() {
         repository.signUpWithEmail(email, password) { success, error ->
             _loginSuccess.postValue(success)
             _errorMessage.postValue(error)
+            if (success) _navigateToHome.postValue(true)
         }
     }
 
@@ -33,8 +37,13 @@ class LoginViewModel(private val repository: AuthRepository): ViewModel() {
         repository.signInWithGoogle(account) { success, error ->
             _loginSuccess.postValue(success)
             _errorMessage.postValue(error)
+            if (success) _navigateToHome.postValue(true)
         }
     }
 
     fun isUserLoggedIn(): Boolean = repository.isUserLoggedIn()
+
+    fun doneNavigating() {
+        _navigateToHome.postValue(false)
+    }
 }

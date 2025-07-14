@@ -31,6 +31,10 @@ class AuthRepository(private val context: Context) {
             }
     }
 
-    fun isUserLoggedIn(): Boolean = auth.currentUser != null
+  //  fun isUserLoggedIn(): Boolean = auth.currentUser != null
     fun getCurrentUser(): FirebaseUser? = auth.currentUser
+    fun isUserLoggedIn(): Boolean {
+        return FirebaseAuth.getInstance().currentUser != null
+    }
+
 }

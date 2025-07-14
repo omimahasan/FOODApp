@@ -11,6 +11,9 @@
         android:label="fragment_home_main"
         tools:layout="@layout/fragment_home_main" >
 
+        <action
+            android:id="@+id/action_homeMainFragment_to_mealDetailFragment"
+            app:destination="@id/mealDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/cartFragment"
@@ -27,4 +30,9 @@
         android:name="com.example.foodapp.ui.home.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/mealDetailFragment"
+        android:name="com.example.foodapp.ui.home.MealDetailFragment"
+        android:label="fragment_meal_detail"
+        tools:layout="@layout/fragment_meal_detail" />
 </navigation>

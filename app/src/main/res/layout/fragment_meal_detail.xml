@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
     tools:context=".ui.home.MealDetailFragment">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -11,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="280dp"
         android:fitsSystemWindows="true"
-        tools:ignore="MissingConstraints">
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:id="@+id/collapsing_toolbar"
@@ -19,27 +21,169 @@
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
             app:contentScrim="@color/light_primary_color"
-            app:layout_scrollFlags="scroll|snap|exitUntilCollapsed"
-            app:title="Meal name">
+            app:title="Meal name"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
             <ImageView
                 android:id="@+id/img_meal_detail"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
-                android:src="@drawable/img1_onboard"
+                android:src="@drawable/meal_detail_img"
                 app:layout_collapseMode="parallax" />
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
-                android:layout_height="?actionBarSize"
+                android:layout_height="66dp"
                 app:layout_collapseMode="pin"
                 app:titleTextColor="@color/white" />
         </com.google.android.material.appbar.CollapsingToolbarLayout>
 
     </com.google.android.material.appbar.AppBarLayout>
 
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="829dp"
+        android:background="@drawable/curved_top_layout"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/curved_top_layout"
+            android:paddingBottom="32dp">
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="45dp"
+                android:layout_height="3dp"
+                android:layout_marginTop="12dp"
+                android:background="@color/back_but_color"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
+                android:id="@+id/linear_location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/view">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/but_popular"
+                    android:layout_width="89dp"
+                    android:layout_height="42dp"
+                    android:layout_marginStart="16dp"
+                    android:background="@drawable/custom_google_but"
+                    android:backgroundTint="@color/back_but_color"
+                    android:text="Popular"
+                    android:textAllCaps="false"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+                <ImageButton
+                    android:layout_width="70dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="130dp"
+                    android:backgroundTint="@android:color/transparent"
+                    android:src="@drawable/icon_location"
+                    tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+                <ImageButton
+                    android:layout_width="65dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="10dp"
+                    android:backgroundTint="@android:color/transparent"
+                    android:src="@drawable/fav_ic"
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+            </LinearLayout>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <TextView
+                android:id="@+id/meal_name"
+                android:layout_width="295dp"
+                android:layout_height="57dp"
+                android:layout_marginTop="28dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Chicken Burger Promo Pack"
+                android:textColor="@color/black"
+                android:textSize="22sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.189"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linear_location" />
+
+            <LinearLayout
+                android:layout_width="331dp"
+                android:layout_height="43dp"
+                android:orientation="horizontal"
+                android:id="@+id/linear_rate"
+                app:layout_constraintBottom_toTopOf="@+id/meal_detail"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.362"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/meal_name"
+                app:layout_constraintVertical_bias="0.0">
+
+                <TextView
+                    android:id="@+id/tv_rate"
+                    android:layout_width="103dp"
+                    android:layout_height="match_parent"
+                    android:drawableStart="@drawable/star_ic"
+                    android:gravity="center"
+                    android:text="4.3 rating"
+                    android:textColor="@color/gray" />
+
+                <TextView
+                    android:id="@+id/tv_num_ordered"
+                    android:layout_width="103dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="40dp"
+                    android:drawableStart="@drawable/shopping_ic"
+                    android:gravity="center"
+                    android:text="4.3 rating"
+                    android:textColor="@color/gray" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/meal_detail"
+                android:layout_width="356dp"
+                android:layout_height="244dp"
+                android:fontFamily="@font/poppins_regular"
+                android:text="@string/meal_detail"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                app:layout_constraintTop_toBottomOf="@id/linear_rate"
+                app:layout_constraintBottom_toTopOf="@+id/add_to_cart"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.53"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:layout_editor_absoluteY="223dp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/add_to_cart"
+                android:layout_width="275dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/custom_google_but"
+                android:backgroundTint="@color/light_primary_color"
+                android:text="Add To Cart"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/meal_detail" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

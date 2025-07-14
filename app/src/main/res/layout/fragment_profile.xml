@@ -1,18 +1,270 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.home.ProfileFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Profile fragment"
-        android:layout_gravity="center"
-        android:textSize="28sp"
-        android:gravity="center"
-        android:textColor="@color/light_primary_color" />
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/appCompatImageButton"
+        android:layout_width="47dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/custom_google_but"
+        android:backgroundTint="@color/back_but_color"
+        android:src="@drawable/back_arrow_ic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.079"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
-</FrameLayout>
+    <ImageView
+        android:id="@+id/img_background"
+        android:layout_width="400dp"
+        android:layout_height="157dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/cart_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_profile"
+        android:layout_width="124dp"
+        android:layout_height="31dp"
+        android:layout_marginTop="8dp"
+        android:text="Profile"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.096"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appCompatImageButton"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="213dp"
+        android:layout_height="175dp"
+        android:layout_marginTop="84dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/imge_profile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="173dp"
+        android:layout_height="39dp"
+        android:gravity="center"
+        android:text="Personal Info"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.016"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/materialCardView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_margin="10dp"
+        android:layout_marginTop="4dp"
+        android:padding="10dp"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.8"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/your_name"
+                android:layout_width="124dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"
+                android:text="Your Name"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/name_profile"
+                android:layout_width="174dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="80dp"
+                android:gravity="center"
+                android:text="Omima Hasan"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="50dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/delivery_charge"
+                android:layout_width="125dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"
+                android:text="Occumpation"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/num_delivery_charge"
+                android:layout_width="174dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="80dp"
+                android:text="manager"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="100dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/discount"
+                android:layout_width="133dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"
+                android:text="Employer"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/num_discount"
+                android:layout_width="159dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="80dp"
+                android:text="@string/food_couriers"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="150dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/total"
+                android:layout_width="130dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"
+                android:text="Nigeria"
+                android:textColor="@color/black"
+                android:textSize="24sp" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/num_total"
+                android:layout_width="172dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="80dp"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:thumbTint="@color/light_primary_color"
+                tools:ignore="UseSwitchCompatOrMaterialXml" />
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:id="@+id/tv_contact"
+        android:layout_width="173dp"
+        android:layout_height="39dp"
+        android:gravity="center"
+        android:text="contact Info"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/materialCardView" />
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/materialCardView2"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_contact">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_email"
+                android:layout_width="124dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"
+                android:text="Your Name"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/email"
+                android:layout_width="174dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="80dp"
+                android:gravity="center"
+                android:text="Omima Hasan"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="50dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/phone_num"
+                android:layout_width="125dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"
+                android:text="Occumpation"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/phone"
+                android:layout_width="174dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="80dp"
+                android:text="manager"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

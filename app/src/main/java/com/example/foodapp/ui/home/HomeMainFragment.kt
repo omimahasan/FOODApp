@@ -5,10 +5,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.example.foodapp.R
+import com.example.foodapp.databinding.FragmentHomeMainBinding
 
 
 class HomeMainFragment : Fragment() {
+    lateinit var binding: FragmentHomeMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,7 +22,32 @@ class HomeMainFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home_main, container, false)
+        binding= FragmentHomeMainBinding.inflate(layoutInflater, container, false)
+
+        onRandomMealClick()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        return binding.root
+    }
+
+
+
+    private fun onRandomMealClick(){
+        binding.homeCard.setOnClickListener {
+            findNavController().navigate(R.id.action_homeMainFragment_to_mealDetailFragment)
+        }
     }
 
 }

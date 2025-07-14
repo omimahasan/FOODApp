@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:startColor="@color/light_primary_color"
+                android:endColor="@color/last_color_custom_but"
+                android:angle="45" /> <!-- Angle in degrees -->
+        </shape>
+    </item>
+
+    <item>
+        <bitmap
+            android:src="@drawable/packground_card_home"
+            android:gravity="center"
+            android:tileMode="disabled" />
+    </item>
+
+</layer-list>

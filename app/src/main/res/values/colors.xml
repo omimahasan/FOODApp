@@ -8,4 +8,5 @@
     <color name="gray">#787171</color>
     <color name="light_pink">#FFB4B4</color>
     <color name="dark_pink">#FF0000</color>
+    <color name="back_but_color">#F0C4D3</color>
 </resources>
